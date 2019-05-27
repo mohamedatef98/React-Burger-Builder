@@ -6,7 +6,7 @@ import BuildControls from 'components/Burger/BuildControls/BuildControls'
 const INGREDIENT_PRICE = {
     salad: 1,
     meat: 2,
-    becon: 2,
+    bacon: 2,
     cheese: 1
 }
 
@@ -16,7 +16,7 @@ class BurgerBuilder extends Component{
     state = {
         ingredients: {
             salad: 0,
-            becon: 0,
+            bacon: 0,
             cheese: 0,
             meat: 0
         },
@@ -29,7 +29,7 @@ class BurgerBuilder extends Component{
         let updatedIngredients = {
             ...this.state.ingredients
         }
-        updatedIngredients.ingredients[type] = newCount;
+        updatedIngredients[type] = newCount;
         const oldTotalPrice = this.state.totalPrice;
         const newTotalPrice = oldTotalPrice + INGREDIENT_PRICE[type];
 
@@ -44,7 +44,7 @@ class BurgerBuilder extends Component{
         return (
             <>
                 <Burger ingredients={this.state.ingredients} />
-                <BuildControls ingredientAdded={(type)=>this.addIngredientHandler} />
+                <BuildControls ingredientAdded={(type)=>this.addIngredientHandler(type)} />
             </>
         )
     }
