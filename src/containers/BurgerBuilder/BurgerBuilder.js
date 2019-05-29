@@ -23,12 +23,19 @@ class BurgerBuilder extends Component{
             meat: 0
         },
         totalPrice: 3,
-        purshaseable: false
+        purshaseable: false,
+        purshasing: false
     }
 
     setPurshaseAble(){
         this.setState((state, props)=>{
             return { ...state, purshaseable: Object.values(state.ingredients).reduce((s, v)=>s+v, 0) > 0}
+        })
+    }
+
+    setPurshasing(){
+        this.setState({
+            purshasing: true
         })
     }
 
@@ -73,7 +80,7 @@ class BurgerBuilder extends Component{
             disabledInfo[key] = disabledInfo[key] <= 0;
         return (
             <>
-                <Modal>
+                <Modal show={this.state.purshasing}>
                     <OrderSummary ingredients={this.state.ingredients} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
@@ -82,7 +89,8 @@ class BurgerBuilder extends Component{
                     ingredientRemoved={(type)=>this.removeIngredientHandler(type)}
                     disabled={disabledInfo}
                     price={this.state.totalPrice}
-                    purshaseable={this.state.purshaseable} />
+                    purshaseable={this.state.purshaseable}
+                    order={()=>this.setPurshasing()} />
             </>
         )
     }
