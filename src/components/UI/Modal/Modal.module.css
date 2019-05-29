@@ -1,6 +1,6 @@
 .Modal{
     position: fixed;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 500;
