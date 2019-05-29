@@ -2,7 +2,7 @@
     position: fixed;
     top: 30%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateY(-100vh) translateX(-50%);
     z-index: 500;
     background-color: white;
     width: 70%;
@@ -11,4 +11,10 @@
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
     padding: 16px;
+    opacity: 0;
+}
+
+.Open{
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
 }
