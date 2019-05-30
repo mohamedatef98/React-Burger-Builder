@@ -12,6 +12,7 @@
     box-shadow: 1px 1px 1px black;
     padding: 16px;
     opacity: 0;
+    max-width: 500px;
 }
 
 .Open{

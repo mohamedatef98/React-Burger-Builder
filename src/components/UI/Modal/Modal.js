@@ -3,13 +3,18 @@ import classnames from 'classnames/bind'
 
 import classes from './Modal.module.css'
 
+import Backdrop from 'components/UI/Backdrop/Backdrop'
+
 const cx = classnames.bind(classes)
 
-const modal = props => {
+const modal = ({show, children}) => {
     return (
-        <div className={cx({ 'Modal': true, 'Open': props.show }) }>
-            {props.children}
-        </div>
+        <>
+            <Backdrop show={show} />
+            <div className={cx({ 'Modal': true, 'Open': show }) }>
+                {children}
+            </div>
+        </>
     );
 }
 
