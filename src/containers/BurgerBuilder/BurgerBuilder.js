@@ -74,13 +74,19 @@ class BurgerBuilder extends Component{
         }, this.setPurshaseAble)
     }
 
+    modalClicked(){
+        this.setState({
+            purshasing: false
+        })
+    }
+
     render(){
         const disabledInfo = {...this.state.ingredients}
         for(let key in disabledInfo)
             disabledInfo[key] = disabledInfo[key] <= 0;
         return (
             <>
-                <Modal show={this.state.purshasing}>
+                <Modal show={this.state.purshasing} clicked={()=>this.modalClicked()}>
                     <OrderSummary ingredients={this.state.ingredients} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
